@@ -24,7 +24,7 @@ for file in $dir/*.torrent; do
                         sleep 60
                 fi
         else
-                echo $torrentId >> torrentIds.txt
+                echo $torrentId >> $dir/torrentIds.txt
                 echo $torrentId
                 mv "$file" $dir/processed
         fi
