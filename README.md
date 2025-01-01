@@ -1,10 +1,16 @@
 # Instructions
 Run add.sh 
-  flags:
-    -a API key (REQUIRED)
-    -dir (Directory with .torrents, default /torrents, don't include ending slash)
+```
+./add.sh -a APIKEY -dir /torrents/dir
+```
+flags:
+  -a API key (REQUIRED)
+  -dir (Directory with .torrents, default /torrents, don't include ending slash)
 
 Run select.sh
-  flags:
-    -f (torrentIds.txt location, default /torrents/torrentIds.txt)
+```
+select.sh -f /torrents/dir/torrentIds.txt
+```
+flags:
+  -f (torrentIds.txt location, default /torrents/torrentIds.txt)
   
