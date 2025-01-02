@@ -10,6 +10,9 @@ done
 headers="Authorization: Bearer $a"
 baseurl="https://api.real-debrid.com/rest/1.0/torrents"
 
+mkdir $dir/failed
+mkdir $dir/processed
+
 function show_progress {
     current="$1"
     total="$2"
