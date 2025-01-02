@@ -1,7 +1,7 @@
 # Instructions
 Run add.sh 
 ```
-./add.sh -a APIKEY -dir /torrents/dir
+./add.sh -a APIKEY -d /torrents/dir
 ```
 don't add a trailing slash to dir.
 
