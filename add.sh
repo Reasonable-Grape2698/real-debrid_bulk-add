@@ -1,9 +1,9 @@
 dir="/torrents"
-while getopts a:dir: flag
+while getopts a:d: flag
 do
     case "${flag}" in
         a) a=${OPTARG};;
-        dir) dir=${OPTARG};;
+        d) dir=${OPTARG};;
     esac
 done
 
