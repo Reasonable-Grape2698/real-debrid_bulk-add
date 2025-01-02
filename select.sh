@@ -6,7 +6,7 @@ do
     esac
 done
 headers="Authorization: Bearer $a"
-baseurl="https://api.real-debrid.com/rest/1.0/torrents"
+baseurl="https://api.real-debrid.com/rest/1.0/"
 
 function show_progress {
     current="$1"
