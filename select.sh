@@ -32,7 +32,7 @@ function show_progress {
 task_in_total=$(cat $f | wc -l)
 
 while read $torrentId; do
-        response=$(curl -s -X POST -H "$headers" -d "files=all" $baseurl/selectFiles/torrents/selectFiles/$torrentId)
+        response=$(curl -s -X POST -H "$headers" -d "files='1'" $baseurl/selectFiles/torrents/selectFiles/$torrentId)
         count=$(echo "$count+1" | bc)
         if [ -n $(echo $response | jq .error) ]
         then
