@@ -7,7 +7,7 @@ don't add a trailing slash to dir.
 
 Run select.sh (this starts the downloads)
 ```
-select.sh -d /torrents/dir
+select.sh -a APIKEY -d /torrents/dir
 ```
 
 select is seperate as we'd hit the 10 active downloads limit otherwise and not be able to add more. This way we can bulk add then select and it'll auto download 10 at a time.
