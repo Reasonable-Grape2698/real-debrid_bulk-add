@@ -6,23 +6,29 @@ do
     esac
 done
 headers="Authorization: Bearer $a"
-baseurl="https://api.real-debrid.com/rest/1.0/"
+baseurl="https://api.real-debrid.com/rest/1.0"
 
 task_in_total=$(cat $f | wc -l)
 count=0
 
-while read $torrentId; do
-        response=$(curl -s -X POST -H "$headers" -d "files=1" $baseurl/selectFiles/$torrentId)
+while read -r torrentId
+do
+        echo $torrentId
+        response=$(curl -s -X POST -H "$headers" -d "files=1" $baseurl/torrents/selectFiles/$torrentId)
         count=$(echo "$count+1" | bc)
-        if [ -n $(echo $response | jq .error) ]
+        if [ -z $(echo $response | jq .error) ]
         then
                 echo "$count/$task_in_total"
                 sed -i '1d' $f
-                $torrentId > completed.txt
+                echo $torrentId >> completed.txt
+                echo $response
                 sleep 0.25
         else
                 echo $response
-                $torrentId > failed.txt
-                sleep 60
+                echo $torrentId >> failed.txt
+                if [ $(echo $response | jq .error_code) == "34" ]
+                then
+                        sleep 60
+                fi
         fi
-done < $f
+done < "$f"
