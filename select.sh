@@ -1,8 +1,8 @@
-while getopts a:f: flag
+while getopts a:d: flag
 do
     case "${flag}" in
         a) a=${OPTARG};;
-        f) f=${OPTARG};;
+        d) dir=${OPTARG};;
     esac
 done
 headers="Authorization: Bearer $a"
@@ -10,7 +10,7 @@ baseurl="https://api.real-debrid.com/rest/1.0"
 
 task_in_total=$(cat $f | wc -l)
 count=0
-
+f = "$dir/torrentIds.txt"
 while read -r torrentId
 do
         echo $torrentId
