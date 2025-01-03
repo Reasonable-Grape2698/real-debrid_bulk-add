@@ -22,7 +22,7 @@ do
                 sed -i '1d' $f
                 echo $torrentId >> completed.txt
                 echo $response
-                sleep 0.25
+                sleep 1
         else
                 echo $response
                 echo $torrentId >> failed.txt
