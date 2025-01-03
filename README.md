@@ -16,4 +16,6 @@ select is seperate as we'd hit the 10 active downloads limit otherwise and not b
 
 
 Used with https://github.com/ozencb/yts-scraper
-If you plan to use with this, I've included DMM backup of every 2160p YTS movie so you can use that instead if that's what you plan to scrape.
+
+For every 2160p YTS movie as of end of 2024, use the backup file or hashlist here:
+https://hashlists.debridmediamanager.com/3d047bc6-b235-4455-a41b-25708a8f9d45.html
