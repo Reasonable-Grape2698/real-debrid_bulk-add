@@ -24,12 +24,12 @@ do
         then
                 echo "$count/$task_in_total"
                 sed -i '1d' $f
-                echo $torrentId >> completed.txt
+                echo $torrentId >> $dir/completed.txt
                 echo $response
                 sleep 1
         else
                 echo $response
-                echo $torrentId >> failed.txt
+                echo $torrentId >> $dir/failed.txt
                 if [ $(echo $response | jq .error_code) == "34" ]
                 then
                         sleep 60
