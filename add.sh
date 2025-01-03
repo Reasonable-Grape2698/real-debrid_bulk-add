@@ -12,8 +12,8 @@ echo $dir
 headers="Authorization: Bearer $a"
 baseurl="https://api.real-debrid.com/rest/1.0/torrents"
 
-mkdir $dir/failed
-mkdir $dir/processed
+mkdir "$dir/failed"
+mkdir "$dir/processed"
 
 for file in $dir/*.torrent; do
         response=$(curl -s --request PUT -H "Content-Type: application/octet-stream" -H "$headers" --data-binary @"$file" "https://api.real-debrid.com/rest/1.0/torrents/addTorrent")
@@ -23,10 +23,11 @@ for file in $dir/*.torrent; do
         if [ $torrentId == "null" ]
         then
                 echo $response
-                mv "$file" $dir/failed
                 if [ $(echo $response | jq .error_code) == 34 ]
                 then
-                        sleep 60
+                    sleep 60
+                else
+                    mv "$file" $dir/failed
                 fi
         else
                 echo $torrentId >> $dir/torrentIds.txt
