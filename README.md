@@ -14,8 +14,5 @@ select is seperate as we'd hit the 10 active downloads limit otherwise and not b
 
 # Ensure zurg isn't running - this will make you hit the API limit more often.
 
-
-Used with https://github.com/ozencb/yts-scraper
-
 For every 2160p YTS movie as of end of 2024, use the backup file or hashlist here:
 https://hashlists.debridmediamanager.com/3d047bc6-b235-4455-a41b-25708a8f9d45.html
