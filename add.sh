@@ -14,8 +14,10 @@ baseurl="https://api.real-debrid.com/rest/1.0/torrents"
 
 mkdir "$dir/failed"
 mkdir "$dir/processed"
-
-for file in $dir/*.torrent; do
+count=0
+total=$(ls $dir/*.torrent | wc -l)
+for file in $dir/*.torrent
+do
         response=$(curl -s --request PUT -H "Content-Type: application/octet-stream" -H "$headers" --data-binary @"$file" "https://api.real-debrid.com/rest/1.0/torrents/addTorrent")
         torrentId=$(echo $response | jq .id)
 
@@ -35,4 +37,6 @@ for file in $dir/*.torrent; do
                 mv "$file" $dir/processed
         fi
         sleep 1
+        count=$(echo "$count+1" | bc)
+        echo $count / $total
 done
