@@ -1,3 +1,13 @@
+# Scraping torrent files
+```
+docker run -it -v /dl/dir:/downloads blurred123131/yts-scraper:latest sh
+```
+yts-scraper -flags -o /downloads
+```
+See flags here:
+https://github.com/ozencb/yts-scraper
+
+
 # Instructions
 Run add.sh (run it a few times as if there's errors other than '34' rate limit, it'll keep the torrent in the main dir and you can retry)
 ```
